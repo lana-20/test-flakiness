@@ -25,6 +25,14 @@ Total tests per build: 800  |
 Chance of Flake per build: 80%  |
 ***4 out of 5 builds contaminated by a flake***  |
 
+## Causes of Flakiness
+| Cause |  Solution |
+| ---- | ---- |
+| Race Conditions | Use *Explicit Waits* to ensure your test has verified the app state before taking actions |
+| Erroneous test assumptions | Run lots of tests in lots of environments to flush out the potential issues before considering your test 'Done' |
+| External instability (3rd party services, etc.) | Isolate or mock the external services as far as possible |
+| App flakiness | Send screenshots, videos, and device logs to the developers |
+
 
 
 When people say a test is flaky, what do they mean? In the most concise way of putting it, what they mean is that a given test might pass one time you run it, and then fail another time you run it, even if neither the app code nor the test code has changed. This would obviously be a frustrating circumstance! You spend an hour writing your test and having it work, only to find that when you run it in a CI system, it suddenly fails 1%, or 10%, or 50% of the time!

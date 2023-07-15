@@ -6,7 +6,7 @@ If you've spent some time in the test automation world professionally, by now yo
 
 What is Flakiness? |
 ---- |
-Flakiness = a test passing one time you run it, then failing another time (without the app code or the test code having changed) |
+Flakiness  =  a test passing one time you run it, then failing another time (without the app code or the test code having changed) |
 Also known as "non-determinism" |
 Usually, "flaky" or "non-deterministic" means "I don't know what the problem is" |
 There's always a reason a test fails erroneously, even if we don't understand it. ∴ A "flaky" test is really the one that passes some times and fails the others, for reasons we don't **yet** undestand. |
@@ -33,6 +33,11 @@ Chance of Flake per build: 80%  |
 | External instability (3rd party services, etc.) | Isolate or mock the external services as far as possible |
 | App flakiness | Send screenshots, videos, and device logs to the developers |
 
+Common Recommendations  |
+---- |
+Take a zero tolerance approach to flakiness, as far as possible. I.e., do not tolerate asinine ignorance when it comes to erroneous failures |
+From the very get-go, use *Best Practices* |
+Establish processes to protect your build from gradual contamination by flakiness -- try a "new test purgatory" |
 
 
 When people say a test is flaky, what do they mean? In the most concise way of putting it, what they mean is that a given test might pass one time you run it, and then fail another time you run it, even if neither the app code nor the test code has changed. This would obviously be a frustrating circumstance! You spend an hour writing your test and having it work, only to find that when you run it in a CI system, it suddenly fails 1%, or 10%, or 50% of the time!

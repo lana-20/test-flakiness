@@ -11,6 +11,22 @@ Also known as "non-determinism" |
 Usually, "flaky" or "non-deterministic" means "I don't know what the problem is" |
 There's always a reason a test fails erroneously, even if we don't understand it. ∴ A "flaky" test is really the one that passes some times and fails the others, for reasons we don't **yet** undestand. |
 
+Dangers of Flakiness |
+---- |
+Flakiness is a rather big concern. We don't want our build to be full of the "tests that cry failure". Tests that fail erroneously lead to the lack of quality signal and lack of trust in the testsuite |
+Miniscule levels of test instability can be magnified under normal CI circumstances |
+
+Flaky Math  |
+---- |
+Test cases: 100  |
+Average stability rating: 99.9%  |
+Environments: 2 Android, 2 iOS, 2 models each  |
+Total tests per build: 800  |
+Chance of Flake per build: 80%  |
+***4 out of 5 builds contaminated by a flake***  |
+
+
+
 When people say a test is flaky, what do they mean? In the most concise way of putting it, what they mean is that a given test might pass one time you run it, and then fail another time you run it, even if neither the app code nor the test code has changed. This would obviously be a frustrating circumstance! You spend an hour writing your test and having it work, only to find that when you run it in a CI system, it suddenly fails 1%, or 10%, or 50% of the time!
 
 Another word you might hear describing the same scenario is the word "nondeterministic". Basically, you don't know when you run your test whether it will certainly pass or fail, even if the app code and test code remain the same.
